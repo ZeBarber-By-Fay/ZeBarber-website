@@ -10,7 +10,7 @@ import B1 from "../assets/b1.jpg";
 import B2 from "../assets/b2.jpg";
 import B3 from "../assets/b3.jpg";
 import B4 from "../assets/b4.jpg";
-
+const good = () => {};
 // random img
 const randomImg = () => {
   return [B1, B2, B3, B4][Math.floor(Math.random() * 4)];
