@@ -4,32 +4,14 @@ import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import useBarbers from "../functions/getBarbers";
 
-import B1 from "../assets/b1.jpg";
-import B2 from "../assets/b2.jpg";
-import B3 from "../assets/b3.jpg";
-import B4 from "../assets/b4.jpg";
-
-// random img
-const randomImg = () => {
-  return [B1, B2, B3, B4][Math.floor(Math.random() * 4)];
-};
 const responsive = {
   desktop: { breakpoint: { max: 3000, min: 1200 }, items: 4 }, // ✅ عرض 4 كروت
   laptop: { breakpoint: { max: 1200, min: 1024 }, items: 3 }, // ✅ عرض 3 كروت للابتوب
   tablet: { breakpoint: { max: 1024, min: 640 }, items: 2 },
   mobile: { breakpoint: { max: 640, min: 0 }, items: 1 },
 };
-const TeamCarousel = () => {
-  const data = useBarbers();
-  const barbers = data.map((item) => {
-    const obj = {};
-    obj.name = `${item.details.first_name} ${item.details.last_name}`;
-    obj.rating = item.details.experience;
-    obj.img = item.details.photo;
-    return obj;
-  });
+const ItemCarousel = ({ array, section }) => {
   return (
     <Box sx={{ bgcolor: "#000", py: 6, px: { xs: 2, sm: 4, md: 8 } }}>
       <Carousel
@@ -40,7 +22,7 @@ const TeamCarousel = () => {
         showDots
         removeArrowOnDeviceType={["tablet", "mobile"]}
       >
-        {barbers.map((member, index) => (
+        {array.map((item, index) => (
           <Box
             key={index}
             sx={{
@@ -59,8 +41,8 @@ const TeamCarousel = () => {
           >
             <Box
               component="img"
-              src={member?.img || randomImg()}
-              alt={member.name}
+              src={item?.img}
+              alt={item.name}
               sx={{
                 width: "100%",
                 height: { xs: 250, sm: 280, md: 300 },
@@ -71,19 +53,34 @@ const TeamCarousel = () => {
             <Box id="barber" sx={{ p: 2 }}>
               <Typography
                 variant="subtitle1"
-                sx={{ color: "#fff", fontWeight: "bold" }}
+                sx={{ color: "#fff", fontWeight: "bold", fontSize: "20px" }}
               >
-                {member.name}
+                {item.name}
               </Typography>
-              <Box sx={{ display: "flex", mt: 1 }}>
-                {[...Array(5)].map((_, i) =>
-                  i < member.rating ? (
-                    <StarIcon key={i} sx={{ color: "#f1c40f" }} />
-                  ) : (
-                    <StarBorderIcon key={i} sx={{ color: "#f1c40f" }} />
-                  )
-                )}
-              </Box>
+              {section === "products" ? (
+                <Box sx={{ display: "flex", mt: 1 }}>
+                  <Typography
+                    variant="subtitle1"
+                    sx={{
+                      color: "#c89633",
+                      fontWeight: "bold",
+                      fontSize: "25px",
+                    }}
+                  >
+                    {item.price} €
+                  </Typography>
+                </Box>
+              ) : (
+                <Box sx={{ display: "flex", mt: 1 }}>
+                  {[...Array(5)].map((_, i) =>
+                    i < item.rating ? (
+                      <StarIcon key={i} sx={{ color: "#f1c40f" }} />
+                    ) : (
+                      <StarBorderIcon key={i} sx={{ color: "#f1c40f" }} />
+                    )
+                  )}
+                </Box>
+              )}
             </Box>
           </Box>
         ))}
@@ -92,4 +89,4 @@ const TeamCarousel = () => {
   );
 };
 
-export default TeamCarousel;
+export default ItemCarousel;

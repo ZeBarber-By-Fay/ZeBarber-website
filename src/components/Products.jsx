@@ -1,24 +1,26 @@
 import { Box, Typography } from "@mui/material";
 import ItemCarousel from "./SiderrBarber";
-import useBarbers from "../functions/getBarbers";
+import useProducts from "../functions/getProducts";
 
-import B1 from "../assets/b1.jpg";
-import B2 from "../assets/b2.jpg";
-import B3 from "../assets/b3.jpg";
-import B4 from "../assets/b4.jpg";
+import B1 from "../assets/p1.jpg";
+import B2 from "../assets/p2.jpg";
+import B3 from "../assets/p3.jpg";
+import B4 from "../assets/p4.jpg";
 
 // random img
 const randomImg = () => {
   return [B1, B2, B3, B4][Math.floor(Math.random() * 4)];
 };
 
-const Barbers = () => {
-  const data = useBarbers();
-  const barbers = data.map((item) => {
+const Products = () => {
+  const data = useProducts();
+  console.log(data);
+  const Products = data.map((item) => {
     const obj = {};
-    obj.name = `${item.details.first_name} ${item.details.last_name}`;
-    obj.rating = item.details.experience;
-    obj.img = item.details.photo || randomImg();
+    obj.name = item.name;
+    obj.img = item.image || randomImg();
+    obj.price = item.price;
+
     return obj;
   });
   return (
@@ -45,12 +47,12 @@ const Barbers = () => {
           }}
           variant="h2"
         >
-          <span style={{ color: "#c89633" }}>Nos</span> Barbiers
+          <span style={{ color: "#c89633" }}>Nos</span> PRODUITS
         </Typography>
       </Box>
-      <ItemCarousel array={barbers} section={""} />
+      <ItemCarousel array={Products} section={"products"} />
     </Box>
   );
 };
 
-export default Barbers;
+export default Products;
