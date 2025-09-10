@@ -6,25 +6,17 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import coverImage from "../assets/hero.jpg";
+import coverImage from "../assets/hero.png";
 
 export default function Slider({ array }) {
-  console.log(array);
   return (
     <Box
       sx={{
-        position: "relative",
         backgroundImage: `url(${coverImage})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",
-        "&::before": {
-          content: '""',
-          position: "absolute",
-          inset: 0,
-          backgroundColor: "rgba(0, 0, 0, 0.6)", // درجة الشفافية
-          zIndex: 1,
-        },
+
         borderRadius: "16px",
         padding: "25px",
 

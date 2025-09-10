@@ -7,7 +7,10 @@ const useTimeWork = () => {
     const getTimeWork = async () => {
       try {
         const response = await fetch(
-          `https://aymene-dev.com/api/time/get-time`
+          `https://aymene-dev.com/api/time/get-time`,
+          {
+            method: "GET",
+          }
         );
         const result = await response.json();
         setDays(result.data);

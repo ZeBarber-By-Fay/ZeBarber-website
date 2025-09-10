@@ -1,7 +1,19 @@
 import { Box, Button, Typography } from "@mui/material";
-import HeroImg from "../assets/hero.jpg";
+import HeroImg from "../assets/hero.png";
+
+import useTimeWork from "../functions/getTime";
 
 export default function Hero() {
+  const data = useTimeWork();
+
+  const days = data.map((item) => {
+    const obj = {};
+    obj.day = item.day;
+    obj.isWork = item.status;
+    return obj;
+  });
+  const daysOff = days.filter((item) => item.isWork == 0);
+
   return (
     <Box
       sx={{
@@ -107,19 +119,39 @@ export default function Hero() {
                   "@media (max-width:950px)": { top: "10px", left: "150px" },
                 }}
               >
-                Mon - Sat
+                {days[0]?.day.slice(0, 3)} -{" "}
+                {days[days.length - 1]?.day.slice(0, 3)}
               </Typography>
               <Typography>10 AM – 19 PM</Typography>
             </Box>
-            <Box sx={{ mt: 1 }}>
-              <Typography
+            <Box
+              sx={{
+                mt: 1,
+              }}
+            >
+              <Box
                 sx={{
-                  color: "#d4a017",
-                  "@media (max-width:950px)": { marginTop: "3px" },
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
                 }}
               >
-                Sun
-              </Typography>
+                {" "}
+                {daysOff.map((item, i) => {
+                  return (
+                    <Typography
+                      key={i}
+                      sx={{
+                        color: "#d4a017",
+                        "@media (max-width:950px)": { marginTop: "5px" },
+                      }}
+                    >
+                      {item.day.slice(0, 3)}{" "}
+                      {i == daysOff.length - 1 ? "" : "-"}
+                    </Typography>
+                  );
+                })}
+              </Box>
               <Typography>Off-Day</Typography>
             </Box>
           </Box>

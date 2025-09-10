@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 
-const useServices = () => {
-  let [days, setDays] = useState([]);
+const useBarbers = () => {
+  const [days, setDays] = useState([]);
 
   useEffect(() => {
-    const getServices = async () => {
+    const getBarbers = async () => {
       try {
         const response = await fetch(
-          `https://aymene-dev.com/api/service/get-services`,
+          `https://aymene-dev.com/api/employee/all-employee`,
           {
             method: "GET",
           }
@@ -19,12 +19,10 @@ const useServices = () => {
       }
     };
 
-    getServices();
+    getBarbers();
   }, []);
-
-  days = days.filter((item) => item.services != "");
 
   return days;
 };
 
-export default useServices;
+export default useBarbers;
