@@ -5,6 +5,7 @@ const Propose = () => {
   return (
     <>
       <Box
+        id="about"
         sx={{
           bgcolor: "#000",
 
@@ -21,7 +22,9 @@ const Propose = () => {
               textAlign: "center",
               color: "white",
               fontWeight: "bold",
+              marginBottom: "50px",
               "@media (max-width:880px)": {
+                marginBottom: "0px",
                 fontSize: "35px",
               },
             }}

@@ -8,6 +8,7 @@ import Barbers from "./components/Barbers";
 import Products from "./components/Products";
 import Propose from "./components/Propos";
 import AppDownolad from "./components/AppDownolad";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Products />
       <AppDownolad />
       <Propose />
+      <Footer />
     </Box>
   );
 }

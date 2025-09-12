@@ -1,39 +1,67 @@
 import { Box, Button, Typography } from "@mui/material";
-import HeroImg from "../assets/hero.png";
+import HeroImg from "../assets/hero.jpg";
 
+import { ReactTyped } from "react-typed";
 import useTimeWork from "../functions/getTime";
 
 export default function Hero() {
-  const data = useTimeWork();
+  const data = useTimeWork() || [];
 
-  const days = data.map((item) => {
+  let days = data.map((item) => {
     const obj = {};
     obj.day = item.day;
     obj.isWork = item.status;
     return obj;
   });
   const daysOff = days.filter((item) => item.isWork == 0);
+  days = days.filter((item) => item.day !== daysOff[0].day);
 
   return (
     <Box
+      id="/"
       sx={{
         position: "relative",
         width: "100%",
-
+        marginBottom: "-12px",
         overflow: "hidden",
         "@media (max-width:700px)": {
           height: "250px",
         },
       }}
     >
+      <Box
+        sx={{
+          textAlign: "center",
+          mt: 5,
+          position: "absolute",
+          left: "50%",
+          top: "30%",
+          transform: "translate(-50%, -50%)",
+          "@media (max-width:1000px)": {
+            display: "none",
+          },
+        }}
+      >
+        <Typography variant="h4" sx={{ fontWeight: "bold", color: "#fff" }}>
+          <ReactTyped
+            strings={[
+              "Bienvenue chez <span style='color:#c89633;'>ZE Barber</span>👋",
+              "Coupes magnifiques et prix compétitifs chez <span style='color:#c89633;'>ZE Barber</span>👋",
+            ]}
+            typeSpeed={50} // سرعة الكتابة
+            backSpeed={30} // سرعة المسح
+            loop // تكرار
+          />
+        </Typography>
+      </Box>
       {/* الخلفية صورة */}
       <img
         src={HeroImg}
         alt="Hero Background"
         style={{
           width: "100%",
-          objectFit: "cover",
           height: "100%",
+          objectFit: "cover",
         }}
       />
 
@@ -159,7 +187,7 @@ export default function Hero() {
 
         {/* زر الحجز */}
         <Box sx={{ mt: { xs: 3, md: 0 } }}>
-          <a href="#">
+          <a href="#apps">
             <Button
               variant="contained"
               sx={{

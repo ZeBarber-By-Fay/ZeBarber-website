@@ -8,6 +8,7 @@ const Separator = () => {
         width: "100%",
         height: "80px",
         bgcolor: "#201d1dff",
+        display: "none",
         "@media (max-width:800px)": {
           display: "none",
         },

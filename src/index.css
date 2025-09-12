@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
 * {
   margin: 0;
@@ -6,7 +6,7 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
   letter-spacing: 1.2px !important;
-  font-family: "Poppins", sans-serif !important;
+  font-family: "Rubik", sans-serif;
 }
 .swiper-button-next::after,
 .swiper-button-prev::after {
@@ -14,6 +14,9 @@
   font-weight: bold;
   font-size: 30px !important;
   display: none !important;
+}
+.swiper-pagination-bullet {
+  background-color: white !important;
 }
 .swiper-pagination-bullet-active {
   background-color: #c89633 !important;

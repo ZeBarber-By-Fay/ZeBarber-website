@@ -7,6 +7,7 @@ const AppDownolad = () => {
   return (
     <>
       <Box
+        id="apps"
         sx={{
           bgcolor: "#000",
 

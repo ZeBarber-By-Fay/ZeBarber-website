@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import coverImage from "../assets/hero.png";
+import coverImage from "../assets/hero.jpg";
 
 export default function Slider({ array }) {
   return (
@@ -30,7 +30,7 @@ export default function Slider({ array }) {
         modules={[Navigation, Pagination, Autoplay]}
         slidesPerView={1}
         loop={true}
-        autoplay={{ delay: 400000000, disableOnInteraction: false }}
+        autoplay={{ delay: 4000, disableOnInteraction: false }}
         navigation
         pagination={{ clickable: true }}
       >

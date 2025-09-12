@@ -23,6 +23,7 @@ const Barbers = () => {
   });
   return (
     <Box
+      id="coiffeur"
       sx={{
         bgcolor: "#000",
 

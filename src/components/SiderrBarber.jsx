@@ -16,8 +16,9 @@ const ItemCarousel = ({ array, section }) => {
     <Box sx={{ bgcolor: "#000", py: 6, px: { xs: 2, sm: 4, md: 8 } }}>
       <Carousel
         responsive={responsive}
+        autoPlay
         infinite
-        autoPlaySpeed={3000}
+        autoPlaySpeed={2000}
         keyBoardControl
         showDots
         removeArrowOnDeviceType={["tablet", "mobile"]}

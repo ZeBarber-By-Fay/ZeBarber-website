@@ -151,6 +151,7 @@ export default function Navbar() {
               }}
             >
               <li
+                onClick={() => setMobileOpen(!mobileOpen)}
                 style={{
                   listStyle: "none",
                   marginBottom: "8px",

@@ -5,6 +5,7 @@ const Stories = () => {
   return (
     <>
       <Box
+        id="story"
         sx={{
           bgcolor: "#000",
 

@@ -14,7 +14,7 @@ const randomImg = () => {
 
 const Products = () => {
   const data = useProducts();
-  console.log(data);
+
   const Products = data.map((item) => {
     const obj = {};
     obj.name = item.name;
@@ -25,6 +25,7 @@ const Products = () => {
   });
   return (
     <Box
+      id="produit"
       sx={{
         bgcolor: "#000",
 
