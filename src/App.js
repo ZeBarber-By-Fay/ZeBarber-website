@@ -9,6 +9,7 @@ import Products from "./components/Products";
 import Propose from "./components/Propos";
 import AppDownolad from "./components/AppDownolad";
 import Footer from "./components/Footer";
+import Contact from "./components/Contact";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Products />
       <AppDownolad />
       <Propose />
+      <Contact />
       <Footer />
     </Box>
   );
