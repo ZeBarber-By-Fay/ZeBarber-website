@@ -14,7 +14,7 @@ export default function Hero() {
     return obj;
   });
   const daysOff = days.filter((item) => item.isWork == 0);
-  days = days.filter((item) => item.day !== daysOff[0].day);
+  days = days.filter((item) => item?.day !== daysOff[0]?.day);
 
   return (
     <Box
@@ -185,7 +185,7 @@ export default function Hero() {
           </Box>
         </Box>
 
-        {/* زر الحجز */}
+        {/* زر الحجز 
         <Box sx={{ mt: { xs: 3, md: 0 } }}>
           <a href="#apps">
             <Button
@@ -205,7 +205,7 @@ export default function Hero() {
               Book Now
             </Button>
           </a>
-        </Box>
+        </Box>*/}
       </Box>
     </Box>
   );

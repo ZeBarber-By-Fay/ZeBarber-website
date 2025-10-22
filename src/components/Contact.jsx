@@ -278,6 +278,7 @@ export default function Contact() {
             >
               {" "}
               <Button
+                type="submit"
                 variant="contained"
                 sx={{
                   marginTop: "15px",

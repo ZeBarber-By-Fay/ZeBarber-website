@@ -21,7 +21,7 @@ function App() {
       <Services />
       <Barbers />
       <Products />
-      <AppDownolad />
+      {/*<AppDownolad />*/}
       <Propose />
       <Contact />
       <Footer />

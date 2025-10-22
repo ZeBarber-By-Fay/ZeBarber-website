@@ -14,6 +14,7 @@ const randomImg = () => {
 
 const Barbers = () => {
   const data = useBarbers();
+
   const barbers = data.map((item) => {
     const obj = {};
     obj.name = `${item.details.first_name} ${item.details.last_name}`;
@@ -21,6 +22,8 @@ const Barbers = () => {
     obj.img = item.details.photo || randomImg();
     return obj;
   });
+  console.log(barbers);
+
   return (
     <Box
       id="coiffeur"

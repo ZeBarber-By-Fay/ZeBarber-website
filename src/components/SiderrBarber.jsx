@@ -27,9 +27,9 @@ const ItemCarousel = ({ array, section }) => {
           <Box
             key={index}
             sx={{
-              bgcolor: "#111",
               borderRadius: "16px",
               overflow: "hidden",
+              height: "100%",
               border: "1px solid rgba(255, 217, 0, 0.12)", // ✅ لون ذهبي شفاف
               boxShadow: "0 0 -5px 3px rgba(255, 215, 0, 0.3)", // ✅ توهج ذهبي
               transition: "transform 0.6s, box-shadow 0.5s",
@@ -41,47 +41,78 @@ const ItemCarousel = ({ array, section }) => {
             }}
           >
             <Box
-              component="img"
-              src={item?.img}
-              alt={item.name}
               sx={{
                 width: "100%",
-                height: { xs: 250, sm: 280, md: 300 },
-                objectFit: "cover",
+                position: "relative",
               }}
-            />
-
-            <Box id="barber" sx={{ p: 2 }}>
-              <Typography
-                variant="subtitle1"
-                sx={{ color: "#fff", fontWeight: "bold", fontSize: "20px" }}
+            >
+              <Box
+                sx={{
+                  height: "380px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
               >
-                {item.name}
-              </Typography>
-              {section === "products" ? (
-                <Box sx={{ display: "flex", mt: 1 }}>
-                  <Typography
-                    variant="subtitle1"
-                    sx={{
-                      color: "#c89633",
-                      fontWeight: "bold",
-                      fontSize: "25px",
-                    }}
-                  >
-                    {item.price} €
-                  </Typography>
-                </Box>
-              ) : (
-                <Box sx={{ display: "flex", mt: 1 }}>
-                  {[...Array(5)].map((_, i) =>
-                    i < item.rating ? (
-                      <StarIcon key={i} sx={{ color: "#f1c40f" }} />
-                    ) : (
-                      <StarBorderIcon key={i} sx={{ color: "#f1c40f" }} />
-                    )
-                  )}
-                </Box>
-              )}
+                {" "}
+                <img
+                  src={item.img}
+                  alt={item.name}
+                  style={{
+                    objectFit: "cover",
+
+                    width: "100%",
+                    height: "100%",
+                    position: "absolute",
+                    left: "0",
+                    top: "0",
+                    zIndex: "100",
+                  }}
+                />
+              </Box>
+
+              <Box
+                id="barber"
+                position={"absolute"}
+                sx={{
+                  p: 2,
+                  bgcolor: "white",
+                  width: "100%",
+                  bottom: "0px",
+                  left: "0",
+                }}
+              >
+                <Typography
+                  variant="subtitle1"
+                  sx={{ color: "#fff", fontWeight: "bold", fontSize: "20px" }}
+                >
+                  {item.name}
+                </Typography>
+                {section === "products" ? (
+                  <Box sx={{ display: "flex", mt: 1 }}>
+                    <Typography
+                      variant="subtitle1"
+                      sx={{
+                        color: "#c89633",
+                        fontWeight: "bold",
+                        fontSize: "25px",
+                      }}
+                    >
+                      {item.price} €
+                    </Typography>
+                  </Box>
+                ) : (
+                  <Box sx={{ display: "flex", mt: 1 }}>
+                    {[...Array(5)].map((_, i) =>
+                      i < item.rating ? (
+                        <StarIcon key={i} sx={{ color: "#f1c40f" }} />
+                      ) : (
+                        <StarBorderIcon key={i} sx={{ color: "#f1c40f" }} />
+                      )
+                    )}
+                  </Box>
+                )}
+              </Box>
             </Box>
           </Box>
         ))}
