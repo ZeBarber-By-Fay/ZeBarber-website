@@ -49,7 +49,7 @@ const Barbers = () => {
           }}
           variant="h2"
         >
-          <span style={{ color: "#c89633" }}>Nos</span> Barbiers
+          <span style={{ color: "#c89633" }}>ZE</span> Barbiers
         </Typography>
       </Box>
       <ItemCarousel array={barbers} section={""} />

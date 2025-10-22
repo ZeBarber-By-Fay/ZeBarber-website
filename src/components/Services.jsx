@@ -1,5 +1,4 @@
-import { Box, Slide, Typography } from "@mui/material";
-import React from "react";
+import { Box, Typography } from "@mui/material";
 
 import useServices from "../functions/getServices";
 import Slider from "./SliderServices";
@@ -32,7 +31,7 @@ const Services = () => {
           }}
           variant="h2"
         >
-          <span style={{ color: "#c89633" }}>Nos</span> Services
+          <span style={{ color: "#c89633" }}>ZE</span> Services
         </Typography>
       </Box>
 

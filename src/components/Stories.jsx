@@ -28,7 +28,7 @@ const Stories = () => {
             }}
             variant="h2"
           >
-            <span style={{ color: "#c89633" }}>Nos</span> Storie
+            <span style={{ color: "#c89633" }}>ZE</span> Storie
           </Typography>
         </Box>
         <Box
@@ -50,18 +50,6 @@ const Stories = () => {
               "@media (max-width:1200px)": { width: "100%" },
             }}
           >
-            <Typography
-              variant="h2"
-              sx={{
-                marginBottom: "10px",
-                fontWeight: "bold",
-                "@media (max-width:880px)": {
-                  fontSize: "30px",
-                },
-              }}
-            >
-              <span style={{ color: "#c89633" }}>ZE</span> story
-            </Typography>
             <Typography
               variant="h1"
               sx={{
