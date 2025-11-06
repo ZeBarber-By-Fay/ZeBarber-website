@@ -7,7 +7,7 @@ const useTimeWork = () => {
     const getTimeWork = async () => {
       try {
         const response = await fetch(
-          `https://aymene-dev.com/api/time/get-time`,
+          `https://zebarbershop.fr/v2/api/time/get-time`,
           {
             method: "GET",
           }

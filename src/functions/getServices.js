@@ -7,7 +7,7 @@ const useServices = () => {
     const getServices = async () => {
       try {
         const response = await fetch(
-          `https://aymene-dev.com/api/service/get-services`,
+          `https://zebarbershop.fr/v2/api/service/get-services`,
           {
             method: "GET",
           }
@@ -22,7 +22,7 @@ const useServices = () => {
     getServices();
   }, []);
 
-  days = days.filter((item) => item.services != "");
+  days = days.filter((item) => item.services !== "");
 
   return days;
 };

@@ -7,7 +7,7 @@ const useProducts = () => {
     const getProducts = async () => {
       try {
         const response = await fetch(
-          `https://aymene-dev.com/api/product/products`,
+          `https://zebarbershop.fr/v2/api/product/products`,
           {
             method: "GET",
           }

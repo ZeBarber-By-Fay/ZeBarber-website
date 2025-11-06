@@ -14,6 +14,7 @@ const randomImg = () => {
 
 const Barbers = () => {
   const data = useBarbers();
+  console.log(data);
 
   const barbers = data.map((item) => {
     const obj = {};
@@ -22,7 +23,6 @@ const Barbers = () => {
     obj.img = item.details.photo || randomImg();
     return obj;
   });
-  console.log(barbers);
 
   return (
     <Box

@@ -7,7 +7,7 @@ const useBarbers = () => {
     const getBarbers = async () => {
       try {
         const response = await fetch(
-          `https://aymene-dev.com/api/employee/all-employee-for-website`,
+          `https://zebarbershop.fr/v2/api/employee/all-employee-for-website`,
           {
             method: "GET",
           }
