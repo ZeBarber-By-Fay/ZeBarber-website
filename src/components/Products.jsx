@@ -48,7 +48,7 @@ const Products = () => {
           }}
           variant="h2"
         >
-          <span style={{ color: "#c89633" }}>ZE</span> PRODUITS
+          <span style={{ color: "#c89633" }}>ZE</span> Produits
         </Typography>
       </Box>
       <ItemCarousel array={Products} section={"products"} />

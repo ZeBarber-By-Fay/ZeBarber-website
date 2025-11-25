@@ -4,6 +4,8 @@ import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import CircularProgress from "@mui/material/CircularProgress";
+import { useState } from "react";
 
 const responsive = {
   desktop: { breakpoint: { max: 3000, min: 1200 }, items: 4 }, // ✅ عرض 4 كروت
@@ -11,8 +13,59 @@ const responsive = {
   tablet: { breakpoint: { max: 1024, min: 640 }, items: 2 },
   mobile: { breakpoint: { max: 640, min: 0 }, items: 1 },
 };
+
 const ItemCarousel = ({ array, section }) => {
-  return (
+  const [loading, setLoding] = useState(true);
+  setTimeout(() => {
+    setLoding(false);
+  }, 4000);
+
+  return loading ? (
+    <Box sx={{ bgcolor: "#000", py: 6, px: { xs: 2, sm: 4, md: 8 } }}>
+      <Carousel
+        responsive={responsive}
+        autoPlay
+        infinite
+        autoPlaySpeed={6000}
+        keyBoardControl
+        showDots
+        removeArrowOnDeviceType={["tablet", "mobile"]}
+      >
+        {["", "", "", ""].map((item, index) => (
+          <Box
+            key={index}
+            sx={{
+              borderRadius: "16px",
+              overflow: "hidden",
+              height: "100%",
+              border: "1px solid rgba(255, 217, 0, 0.12)",
+              boxShadow: "0 0 -5px 3px rgba(255, 215, 0, 0.3)",
+              transition: "transform 0.6s, box-shadow 0.5s",
+              mx: 1.5,
+              position: "relative",
+            }}
+          >
+            {/* Spinner ثابت في وسط الكارد */}
+            <div
+              style={{
+                color: "white",
+                width: "240px",
+                height: "300px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+              className="spinner-overlay"
+            >
+              <Box sx={{ display: "flex" }}>
+                <CircularProgress sx={{ color: "white" }} />
+              </Box>
+            </div>
+          </Box>
+        ))}
+      </Carousel>
+    </Box>
+  ) : (
     <Box sx={{ bgcolor: "#000", py: 6, px: { xs: 2, sm: 4, md: 8 } }}>
       <Carousel
         responsive={responsive}
@@ -30,22 +83,15 @@ const ItemCarousel = ({ array, section }) => {
               borderRadius: "16px",
               overflow: "hidden",
               height: "100%",
-              border: "1px solid rgba(255, 217, 0, 0.12)", // ✅ لون ذهبي شفاف
-              boxShadow: "0 0 -5px 3px rgba(255, 215, 0, 0.3)", // ✅ توهج ذهبي
+              border: "1px solid rgba(255, 217, 0, 0.12)",
+              boxShadow: "0 0 -5px 3px rgba(255, 215, 0, 0.3)",
               transition: "transform 0.6s, box-shadow 0.5s",
-              "&:hover": {
-                transform: "translateY(-8px)",
-                boxShadow: "0 0 -1px 5px rgba(255, 215, 0, 0.5)", // ✅ أقوى عند الهوفر
-              },
               mx: 1.5,
+              position: "relative",
             }}
           >
-            <Box
-              sx={{
-                width: "100%",
-                position: "relative",
-              }}
-            >
+            {/* الصورة */}
+            <Box sx={{ width: "100%", position: "relative" }}>
               <Box
                 sx={{
                   height: "380px",
@@ -54,23 +100,22 @@ const ItemCarousel = ({ array, section }) => {
                   alignItems: "center",
                 }}
               >
-                {" "}
                 <img
                   src={item.img}
                   alt={item.name}
                   style={{
                     objectFit: "cover",
-
                     width: "100%",
                     height: "100%",
                     position: "absolute",
-                    left: "0",
-                    top: "0",
-                    zIndex: "100",
+                    left: 0,
+                    top: 0,
+                    zIndex: 100,
                   }}
                 />
               </Box>
 
+              {/* معلومات البرودكت أو الريفيو */}
               <Box
                 id="barber"
                 position={"absolute"}
@@ -78,8 +123,8 @@ const ItemCarousel = ({ array, section }) => {
                   p: 2,
                   bgcolor: "white",
                   width: "100%",
-                  bottom: "0px",
-                  left: "0",
+                  bottom: 0,
+                  left: 0,
                 }}
               >
                 <Typography
@@ -88,6 +133,7 @@ const ItemCarousel = ({ array, section }) => {
                 >
                   {item.name}
                 </Typography>
+
                 {section === "products" ? (
                   <Box sx={{ display: "flex", mt: 1 }}>
                     <Typography

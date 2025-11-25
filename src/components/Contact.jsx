@@ -97,7 +97,7 @@ export default function Contact() {
           <Box sx={{ marginTop: "25px" }}>
             {" "}
             <Typography variant="subtitle1" sx={{ color: "#ffffff94" }}>
-              Email Us at:
+              Envoyez-nous un courriel à :
             </Typography>
             <Link
               href="mailto:debabs@hotmail.fr"

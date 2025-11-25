@@ -5,13 +5,13 @@ import CloseIcon from "@mui/icons-material/Close";
 import Logo from "../assets/logo.png";
 
 const navItems = [
-  { label: "Home", link: "#", active: true },
-  { label: "Story", link: "#story" },
+  { label: "Accueil", link: "#", active: true },
+  { label: "Histoire", link: "#story" },
   { label: "Services", link: "#services" },
   { label: "Coiffeur", link: "#coiffeur" },
-  { label: "Produit", link: "#produit" },
-  { label: "About Us", link: "#about" },
-  { label: "Contact Us", link: "#contact" },
+  { label: "Produits", link: "#produit" },
+  { label: "À propos de nous", link: "#about" },
+  { label: "Contactez-nous", link: "#contact" },
 ];
 
 export default function Navbar() {

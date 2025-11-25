@@ -28,7 +28,7 @@ const Stories = () => {
             }}
             variant="h2"
           >
-            <span style={{ color: "#c89633" }}>ZE</span> Storie
+            <span style={{ color: "#c89633" }}>ZE</span> Histoire
           </Typography>
         </Box>
         <Box
